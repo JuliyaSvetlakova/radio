@@ -132,7 +132,7 @@ public class RadioTest {
     @Test
     public void  setValueVolumeMoreMax() {
         Radio volume = new Radio();
-        volume.setCurrentRadioStation(101);
+        volume.setCurrentVolume(101);
         int expected = 0;
         int actual = volume.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
