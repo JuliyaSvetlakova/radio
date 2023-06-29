@@ -7,6 +7,81 @@ public class RadioTest {
 
 
     @Test
+    public void shouleSetToQuantityRadioStation() {
+        Radio station = new Radio(15);
+        Assertions.assertEquals(15, station.getMaxRadioStation());
+    }
+    @Test
+    public void shouleSetToQuantityRadioStationZero() {
+        Radio station = new Radio(0);
+        Assertions.assertEquals(0, station.getMaxRadioStation());
+    }
+    @Test
+    public void radioStationNumberWithinTheBoundaryValues() {
+        Radio station = new Radio(15);
+        station.setCurrentRadioStation(3);
+        int expected = 3;
+        int actual = station.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void radioStationNumberOutsideTheMinimumValue() {
+        Radio station = new Radio(15);
+        station.setCurrentRadioStation(-1);
+        int expected = 0;
+        int actual = station.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void radioStationNumberOutsideTheMaximumValue() {
+        Radio station = new Radio(15);
+        station.setCurrentRadioStation(16);
+        int expected = 0;
+        int actual = station.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void switchingToTheNextRadioStation() {
+        Radio station = new Radio(15);
+        station.setCurrentRadioStation(10);
+        station.nextRadioStation();
+        int expected = 11;
+        int actual = station.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void switchingToTheNextRadioStationZero() {
+        Radio station = new Radio(15);
+        station.setCurrentRadioStation(15);
+        station.nextRadioStation();
+        int expected = 0;
+        int actual = station.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void switchingToThePrevtRadioStation() {
+        Radio station = new Radio(15);
+        station.setCurrentRadioStation(12);
+        station.prevRadioStation();
+        int expected = 11;
+        int actual = station.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void switchingToThePrevtRadioStationMax() {
+        Radio station = new Radio(15);
+        station.setCurrentRadioStation(0);
+        station.prevRadioStation();
+        int expected = 15;
+        int actual = station.getCurrentRadioStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouleSetToMaxRadioStation() {
         Radio station = new Radio();
         station.setToMaxRadioStation();
@@ -43,7 +118,7 @@ public class RadioTest {
     }
 
     @Test
-    public void  setValueRadioStationMoreMax() {
+    public void setValueRadioStationMoreMax() {
         Radio station = new Radio();
         station.setCurrentRadioStation(10);
         int expected = 0;
@@ -92,7 +167,6 @@ public class RadioTest {
     }
 
 
-
     @Test
     public void shouleSetToMaxVolume() {
         Radio volume = new Radio();
@@ -130,7 +204,7 @@ public class RadioTest {
     }
 
     @Test
-    public void  setValueVolumeMoreMax() {
+    public void setValueVolumeMoreMax() {
         Radio volume = new Radio();
         volume.setCurrentVolume(101);
         int expected = 0;
@@ -141,7 +215,7 @@ public class RadioTest {
     @Test
     public void shouleIncreaseVolume() {
         Radio volume = new Radio();
-        volume.setCurrentVolume (99);
+        volume.setCurrentVolume(99);
         volume.increaseVolume();
         int expected = 100;
         int actual = volume.getCurrentVolume();
