@@ -1,36 +1,45 @@
 package ru.netology.radio;
 
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class Radio {
     private int currentRadioStation;
     private int maxRadioStation = 9;
-    public Radio() {
+    private int currentVolume;
+    private int maxVolume = 100;
 
+
+    public Radio() {
     }
+
     public Radio(int maxRadioStation) {
         this.maxRadioStation = maxRadioStation;
     }
-
     public int getCurrentRadioStation() {
         return currentRadioStation;
     }
-    public int getMaxRadioStation () {
+    public int getMaxRadioStation() {
         return maxRadioStation;
     }
-
-    public void setCurrentRadioStation(int newCurrentRadioStation) {
-        if (newCurrentRadioStation < 0) {
+    public void setCurrentRadioStation(int newcurrentRadioStation) {
+        if (newcurrentRadioStation < 0) {
             return;
         }
-        if (newCurrentRadioStation > maxRadioStation) {
+        if (newcurrentRadioStation > maxRadioStation) {
             return;
         }
-        currentRadioStation = newCurrentRadioStation;
+        currentRadioStation = newcurrentRadioStation;
     }
-
     public void setToMaxRadioStation() {
         currentRadioStation = maxRadioStation;
     }
-
     public void setToMinRadioStation() {
         currentRadioStation = 0;
     }
@@ -48,26 +57,13 @@ public class Radio {
     }
 
 
-    private int currentVolume;
-
     public int getCurrentVolume() {
         return currentVolume;
     }
 
-    public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 0) {
-            return;
-        }
-        if (newCurrentVolume > 100) {
-            return;
-        }
-        currentVolume = newCurrentVolume;
-    }
-
     public void setToMaxVolume() {
-        currentVolume = 100;
+        currentVolume = maxVolume;
     }
-
     public void setToMinVolume() {
         currentVolume = 0;
     }
@@ -83,5 +79,4 @@ public class Radio {
             currentVolume = currentVolume - 1;
         } else currentVolume = 0;
     }
-
 }
