@@ -84,7 +84,7 @@ public class RadioTest {
     @Test
     public void shouleSetToMaxRadioStation() {
         Radio station = new Radio();
-        station.setToMaxRadioStation();
+        station.setMaxRadioStation();
         int expected = 9;
         int actual = station.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
@@ -93,7 +93,7 @@ public class RadioTest {
     @Test
     public void shouleSetToMinRadioStation() {
         Radio station = new Radio();
-        station.setToMinRadioStation();
+        station.setMinRadioStation();
         int expected = 0;
         int actual = station.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
@@ -170,7 +170,7 @@ public class RadioTest {
     @Test
     public void shouleSetToMaxVolume() {
         Radio volume = new Radio();
-        volume.setToMaxVolume();
+        volume.setMaxVolume();
         int expected = 100;
         int actual = volume.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
@@ -179,7 +179,7 @@ public class RadioTest {
     @Test
     public void shouleSetToMinVolume() {
         Radio volume = new Radio();
-        volume.setToMinVolume();
+        volume.setMinVolume();
         int expected = 0;
         int actual = volume.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
