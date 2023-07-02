@@ -11,11 +11,13 @@ public class RadioTest {
         Radio station = new Radio(15);
         Assertions.assertEquals(15, station.getMaxRadioStation());
     }
+
     @Test
     public void shouleSetToQuantityRadioStationZero() {
         Radio station = new Radio(0);
         Assertions.assertEquals(0, station.getMaxRadioStation());
     }
+
     @Test
     public void radioStationNumberWithinTheBoundaryValues() {
         Radio station = new Radio(15);
@@ -24,6 +26,7 @@ public class RadioTest {
         int actual = station.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void radioStationNumberOutsideTheMinimumValue() {
         Radio station = new Radio(15);
@@ -32,6 +35,7 @@ public class RadioTest {
         int actual = station.getCurrentRadioStation();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void radioStationNumberOutsideTheMaximumValue() {
         Radio station = new Radio(15);
