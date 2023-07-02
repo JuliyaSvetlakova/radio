@@ -43,7 +43,7 @@ public class RadioTest {
     }
 
     @Test
-    public void  setValueRadioStationMoreMax() {
+    public void setValueRadioStationMoreMax() {
         Radio station = new Radio();
         station.setCurrentRadioStation(10);
         int expected = 0;
@@ -92,7 +92,6 @@ public class RadioTest {
     }
 
 
-
     @Test
     public void shouleSetToMaxVolume() {
         Radio volume = new Radio();
@@ -130,7 +129,7 @@ public class RadioTest {
     }
 
     @Test
-    public void  setValueVolumeMoreMax() {
+    public void setValueVolumeMoreMax() {
         Radio volume = new Radio();
         volume.setCurrentVolume(101);
         int expected = 0;
@@ -141,7 +140,7 @@ public class RadioTest {
     @Test
     public void shouleIncreaseVolume() {
         Radio volume = new Radio();
-        volume.setCurrentVolume (99);
+        volume.setCurrentVolume(99);
         volume.increaseVolume();
         int expected = 100;
         int actual = volume.getCurrentVolume();
