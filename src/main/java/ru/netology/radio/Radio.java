@@ -6,20 +6,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-@AllArgsConstructor
-@Data
+//@AllArgsConstructor
+//@Data
 
 
 public class Radio {
     private int currentRadioStation;
-    private int maxRadioStation = 9;
-    private int minRadioStation = 0;
     private int currentVolume;
-    private int maxVolume = 100;
-    private int minVolume = 0;
+    private int maxRadioStation = 9;
 
-    public Radio(int size) {
-        maxRadioStation = minRadioStation + size - 1;
+
+    public Radio(int numberRadioStation) {
+        maxRadioStation = numberRadioStation - 1;
     }
 
     public int getCurrentRadioStation() {
@@ -27,7 +25,7 @@ public class Radio {
     }
 
     public void setCurrentRadioStation(int newCurrentRadioStation) {
-        if (newCurrentRadioStation < minRadioStation) {
+        if (newCurrentRadioStation < 0) {
             return;
         }
         if (newCurrentRadioStation > maxRadioStation) {
@@ -45,19 +43,19 @@ public class Radio {
     }
 
     public void setMinRadioStation() {
-        currentRadioStation = minRadioStation;
+        currentRadioStation = 0;
     }
 
     public void nextRadioStation() {
         if (currentRadioStation < maxRadioStation) {
             currentRadioStation = currentRadioStation + 1;
         } else {
-            currentRadioStation = minRadioStation;
+            currentRadioStation = 0;
         }
     }
 
     public void prevRadioStation() {
-        if (currentRadioStation > minRadioStation) {
+        if (currentRadioStation > 0) {
             currentRadioStation = currentRadioStation - 1;
         } else {
             currentRadioStation = maxRadioStation;
@@ -69,36 +67,36 @@ public class Radio {
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < minVolume) {
+        if (newCurrentVolume < 0) {
             return;
         }
-        if (newCurrentVolume > maxVolume) {
+        if (newCurrentVolume > 100) {
             return;
         }
         currentVolume = newCurrentVolume;
     }
 
     public void setMaxVolume() {
-        currentVolume = maxVolume;
+        currentVolume = 100;
     }
 
     public void setMinVolume() {
-        currentVolume = minVolume;
+        currentVolume = 0;
     }
 
     public void increaseVolume() {
-        if (currentVolume < maxVolume) {
+        if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
         } else {
-            currentVolume = maxVolume;
+            currentVolume = 100;
         }
     }
 
     public void reduceVolume() {
-        if (currentVolume > minVolume) {
+        if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
         } else {
-            currentVolume = minVolume;
+            currentVolume = 0;
         }
     }
 }
